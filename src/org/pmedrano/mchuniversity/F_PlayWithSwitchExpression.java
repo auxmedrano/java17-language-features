@@ -9,17 +9,17 @@ public class F_PlayWithSwitchExpression {
 
     public static void main(String[] args) {
 
-        //oldSwitch();
-       //switchUsingArrow();
-        //switchUsingYield();
+  //      oldSwitch();
+   //   switchUsingArrow();
+    //    switchUsingYield();
         switchUsingDefault();
 
     }
 
     public static void oldSwitch() {
         //ol' reliable switch
-        int quarter = 5;
-        String quarterLabel = null;
+        int quarter = 0;
+        String quarterLabel;
         switch (quarter) {
             case 0:
             case 1:
