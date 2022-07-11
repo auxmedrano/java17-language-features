@@ -21,13 +21,13 @@ public class C_PlayWithFactoryMethods {
 
         var arraysAsList =
             Arrays.asList("one", "two", "three", "four", "five");  // returns an immutable list
-        //arraysAsList.add("six");
+        //arraysAsList.add("six"); // you cannot add or remove elements
       arraysAsList.replaceAll(String::toUpperCase); //but the items can be modified
 
 
         var listOf =
             List.of("one", "two", "three", "four", "five","six"); // complete immutable list - can't add null
-        //listOf.replaceAll(String::toUpperCase);
+        //listOf.replaceAll(String::toUpperCase); // you cannot modify the elements
 
 
 //        System.out.println("arrayList    = " + arrayList);

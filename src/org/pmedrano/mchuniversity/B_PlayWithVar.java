@@ -4,10 +4,10 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class B_PlayWithVar {
-      //cannot be used for local variables
+//    cannot be used for fields
 //    private var name = "Pablo";
-
-    //cannot be used for constructor or parameters
+//
+//    cannot be used for constructor or parameters
 //    public void setName(var name) {
 //        this.name = name;
 //    }

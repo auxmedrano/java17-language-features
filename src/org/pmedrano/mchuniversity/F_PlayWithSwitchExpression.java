@@ -9,10 +9,10 @@ public class F_PlayWithSwitchExpression {
 
     public static void main(String[] args) {
 
-  //      oldSwitch();
-   //   switchUsingArrow();
-    //    switchUsingYield();
-        switchUsingDefault();
+        oldSwitch();
+//        switchUsingArrow();
+//        switchUsingYield();
+//        switchUsingDefault();
 
     }
 
@@ -21,7 +21,7 @@ public class F_PlayWithSwitchExpression {
         int quarter = 0;
         String quarterLabel;
         switch (quarter) {
-            case 0:
+            case 0: //using multiple cases
             case 1:
                 quarterLabel = "Q1 - Winter";
                 break;
@@ -43,7 +43,7 @@ public class F_PlayWithSwitchExpression {
         DayOfWeek dayOfWeek = DayOfWeek.valueOf("SATURDAY");
 
         var message = switch (dayOfWeek) {
-            case MONDAY, TUESDAY, THURSDAY, FRIDAY -> "School";
+            case MONDAY, TUESDAY, THURSDAY, FRIDAY -> "School"; //using multiple cases
             case WEDNESDAY -> "Sports";
             case SATURDAY -> "Friends";
             case SUNDAY -> "Family";
@@ -58,9 +58,9 @@ public class F_PlayWithSwitchExpression {
         DayOfWeek dayOfWeek = DayOfWeek.valueOf("FRIDAY");
 
         String message = switch (dayOfWeek) {
-            case MONDAY, TUESDAY, THURSDAY, FRIDAY -> {
+            case MONDAY, TUESDAY, THURSDAY, FRIDAY -> { //multiple statements
                 System.out.println("School printed");
-                yield "School";
+                yield "School"; //instead of return
             }
             case WEDNESDAY -> "Sports";
             case SATURDAY -> "Friends";
@@ -81,7 +81,7 @@ public class F_PlayWithSwitchExpression {
             case 3 -> "Sports";
             case 6 -> "Friends";
             case 0 -> "Family";
-            default -> "unknown day";
+            default -> "unknown day"; //default case needed
         };
         System.out.println("SwitchExpression Using default: " + message);
 

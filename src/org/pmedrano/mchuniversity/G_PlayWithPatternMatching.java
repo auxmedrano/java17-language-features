@@ -16,7 +16,7 @@ public class G_PlayWithPatternMatching {
             System.out.println("integer pattern variable: " + p);
         }
 
-        //flow scoping the variable is only in scope when the compiler determine its type
+        //flow scoping the variable is only in scope when the compiler can determine its type
         if (object instanceof String p) {
             System.out.println("string pattern: " + p);
         }

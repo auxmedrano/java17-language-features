@@ -4,12 +4,12 @@ public class A_PlayWithTextBlocks {
 
 
     public static void main (String[] args){
-//        String traditionalMultiLine = "hello this \"" + "\n"
-//            + " is a multi line string";
-//
-//        System.out.println(traditionalMultiLine);
-//
-//        System.out.println("***************");
+        String traditionalMultiLine = "hello this \"" + "\n" //escaped characters and new line
+            + " is a multi line string";
+
+        System.out.println(traditionalMultiLine);
+
+        System.out.println("------------------------------------");
 
         //starts and ends with three double quotes
 //        String textBlock = """
@@ -18,6 +18,8 @@ public class A_PlayWithTextBlocks {
 //            hello world""";
 //
 //       System.out.println(textBlock);
+
+//        System.out.println("------------------------------------");
 
 //        String anothertextBlock = """
 //                 this is a multiline   \s
