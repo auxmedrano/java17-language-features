@@ -4,13 +4,14 @@ package org.pmedrano.mchuniversity.records;
 /*
  *A record is class declared with the record keyword instead of the class keyword.
  *It is an immutable class
- *The class that the compiler creates for you when you create a record is final.
+ *It is a final Class
  *This class extends the java.lang.Record class. So your record cannot extend any class.
  *A record can implement any number of interfaces.
  *It has a compact constructor
  *It has a canonical constructor
  *The toString(), equals() and hashCode() methods have been created for you by the compiler with a default behavior
- *It can implement the Serializable interface, so that you can send instances of Range to other applications over a network or through a file system.
+ *It can implement the Serializable interface
+ *You can send instances of Range to other applications over a network or through a file system.
  *Everytime you modify the components of a record, the compiler automatically updates the equals() and hashCode() methods for you.
  */
 
@@ -18,11 +19,11 @@ import org.pmedrano.mchuniversity.legacy.LegacyRecord;
 
 public record Range(int start, int end) {
 
-//    LegacyRecord legacyRecord; //instace field is not allowed in a record
-//    String mystring = "mystring"; //you cannot define field initializer
-//    LegacyRecord legacyRecord = new LegacyRecord(0,5); //  // you cannot add any instance initializer
+//    LegacyRecord legacyRecord; //instance field is not allowed in a record
+//    String myString = "myString"; //you cannot define field initializer
+//    LegacyRecord legacy = new LegacyRecord(0,5); //you cannot add any instance initializer
 
-    static LegacyRecord legacyRecord = new LegacyRecord(0,5);
+    static LegacyRecord legacyRecord = new LegacyRecord(0, 5);
     static String myString = "myString";
 
     //compact constructor

@@ -8,21 +8,20 @@ public class D_PlayWithStreams {
     public static void main(String[] args) {
         List<String> strings = List.of("one", "two", "three", "four");
 
- //       //ignores the consumer because it has a terminal operation
+        //ignores the consumer because it has a terminal operation
         var count = strings.stream().peek(System.out::println) //don't use peek on production
-            //.filter(s -> s.startsWith("t"))
             .count();
 
         System.out.println("count elements:" + count);
 
-//      //again because the terminal operation the intermediate operation is not processed
-//        var list = new ArrayList<String>();
-//        var count = strings.stream().map(s -> {
-//            list.add(s);
-//            return s.toUpperCase();s
-//        }).count();
-//        System.out.println("count = " + count);
-//        System.out.println("list = " + list);
+      //again because the terminal operation the intermediate operation is not processed
+        var list = new ArrayList<String>();
+        var count1 = strings.stream().map(s -> {
+            list.add(s);
+            return s.toUpperCase();
+        }).count();
+        System.out.println("count = " + count1);
+        System.out.println("list = " + list);
 
         // because it has the filter intermediate operation there is no longer sized stream, so it will execute the map
 //        var listOf =
