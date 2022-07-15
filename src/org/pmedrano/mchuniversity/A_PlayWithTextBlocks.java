@@ -5,7 +5,7 @@ public class A_PlayWithTextBlocks {
 
     public static void main(String[] args) {
         String traditionalMultiLine = "hello this \"" + "\n" //escaped characters and new line
-            + " is a multi line string";
+                + " is a multi line string";
 
         System.out.println(traditionalMultiLine);
 
@@ -13,19 +13,19 @@ public class A_PlayWithTextBlocks {
 
         //starts and ends with three double quotes
         String textBlock = """
-            this is a multiline
-            text block
-            hello world""";
+                this is a multiline
+                text block
+                hello world""";
 
-       System.out.println(textBlock);
+        System.out.println(textBlock);
 
         System.out.println("------------------------------------");
 
         String anotherBlock = """
-                 this is a multiline       \s
-               "text block"      \
-              a     $hello world  \s
-             """;
+                    this is a multiline       \s
+                  "text block"      \
+                 a     $hello world  \s
+                """;
         anotherBlock.lines().map(s -> "|" + s + "|").forEach(System.out::println);
 //
 //        //incidental whitespace and essential whitespace

@@ -23,7 +23,7 @@ public class B_PlayWithVar {
         System.out.println(path.getFileName());
 
         var list = List.of("one", "two", "three", "four");
-        for (var element: list) {
+        for (var element : list) {
             System.out.println(element);
         }
 

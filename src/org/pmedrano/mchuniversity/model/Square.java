@@ -1,6 +1,6 @@
 package org.pmedrano.mchuniversity.model;
 
-public non-sealed class Square  implements Figure{
+public non-sealed class Square implements Figure {
     private double edge;
 
     @Override

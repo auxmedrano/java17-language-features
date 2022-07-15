@@ -7,7 +7,7 @@ public final class Circle implements Figure {
     @Override
     public double surface() {
 
-        return  Math.PI * Math.pow(radius,2);
+        return Math.PI * Math.pow(radius, 2);
     }
 
     public double getRadius() {

@@ -10,11 +10,11 @@ public class D_PlayWithStreams {
 
         //ignores the consumer because it has a terminal operation
         var count = strings.stream().peek(System.out::println) //don't use peek on production
-            .count();
+                .count();
 
         System.out.println("count elements:" + count);
 
-      //again because the terminal operation the intermediate operation is not processed
+        //again because the terminal operation the intermediate operation is not processed
         var list = new ArrayList<String>();
         var count1 = strings.stream().map(s -> {
             list.add(s);

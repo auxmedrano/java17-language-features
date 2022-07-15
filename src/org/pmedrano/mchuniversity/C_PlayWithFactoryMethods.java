@@ -21,7 +21,7 @@ public class C_PlayWithFactoryMethods {
         System.out.println("--------------------------------------------------");
 
         var immutableList =
-            Arrays.asList("one", "two", "three", "four", "five");  // returns an immutable list
+                Arrays.asList("one", "two", "three", "four", "five");  // returns an immutable list
         //immutableList.add("six"); // you cannot add or remove elements
         immutableList.replaceAll(String::toUpperCase); //but the items can be modified
 
@@ -29,7 +29,7 @@ public class C_PlayWithFactoryMethods {
         System.out.println("--------------------------------------------------");
 
         var completeImmutableList =
-            List.of("one", "two", "three", "four", "five", "six"); // complete immutable list - can't add null
+                List.of("one", "two", "three", "four", "five", "six"); // complete immutable list - can't add null
         //completeImmutableList.replaceAll(String::toUpperCase); // you cannot modify the elements
         System.out.println("completeImmutableList = " + completeImmutableList);
         System.out.println("--------------------------------------------------");
@@ -47,12 +47,12 @@ public class C_PlayWithFactoryMethods {
         System.out.println("Equals = " + (completeImmutableList == copyOfImmutable)); // true
 
         var mapTenEntries =
-            Map.of(1, "1", 2, "2"); //map k,v up to 10
+                Map.of(1, "1", 2, "2"); //map k,v up to 10
 
         var mapMoreEntries =
-            Map.ofEntries(
-                Map.entry(1, "1"),
-                Map.entry(2, "2")); // map if you need more than 10 entries
+                Map.ofEntries(
+                        Map.entry(1, "1"),
+                        Map.entry(2, "2")); // map if you need more than 10 entries
 
     }
 }

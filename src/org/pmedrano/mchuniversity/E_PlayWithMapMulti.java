@@ -8,12 +8,12 @@ public class E_PlayWithMapMulti {
     public static void main(String[] args) {
 
         String numbers = """
-            1
-            2
-            3
-            4
-            5
-            """;
+                1
+                2
+                3
+                4
+                5
+                """;
 
 //        var intsToList = numbers.lines()
 //            .map(Integer::parseInt)
@@ -34,30 +34,30 @@ public class E_PlayWithMapMulti {
     public static void usingFlatMap(String numbers) {
         //if you are using java 8 this could be a better solution
         List<Integer> toList = numbers.lines()
-            .flatMap(  //filters all the streams of one element
-                s -> {
-                    try {
-                        return Stream.of(Integer.parseInt(s)); //returns a Stream of one element
-                    } catch (NumberFormatException e) {
-                        return Stream.of(); //returns an empty Stream
-                    }
-                }
-            )
-            .toList();
+                .flatMap(  //filters all the streams of one element
+                        s -> {
+                            try {
+                                return Stream.of(Integer.parseInt(s)); //returns a Stream of one element
+                            } catch (NumberFormatException e) {
+                                return Stream.of(); //returns an empty Stream
+                            }
+                        }
+                )
+                .toList();
         System.out.println("toList using flatMap = " + toList);
     }
 
     // best solution using java 17
     public static void usingMapMulti(String numbers) {
         List<Integer> toList = numbers.lines()
-            .<Integer>mapMulti(
-                (s, consumer) -> { //it takes a BiConsumer (elementToBeProcessed, Consumer)
-                    try {
-                        consumer.accept(Integer.parseInt(s)); //if this can be done it will add the result to the downstream
-                    } catch (NumberFormatException e) {
-                        // System.out.println("error: " + e.getMessage()); // if it is not possible it doesn't add anything
-                    }
-                }).toList(); //returns an immutable list
+                .<Integer>mapMulti(
+                        (s, consumer) -> { //it takes a BiConsumer (elementToBeProcessed, Consumer)
+                            try {
+                                consumer.accept(Integer.parseInt(s)); //if this can be done it will add the result to the downstream
+                            } catch (NumberFormatException e) {
+                                // System.out.println("error: " + e.getMessage()); // if it is not possible it doesn't add anything
+                            }
+                        }).toList(); //returns an immutable list
 
         System.out.println("ToList using Map Multi = " + toList);
     }
