@@ -7,46 +7,52 @@ import java.util.Map;
 import java.util.Objects;
 
 public class C_PlayWithFactoryMethods {
+
     public static void main(String[] args) {
 
-        //ArrayList<String> arrayList = new ArrayList<>();
-        var arrayList = new ArrayList<String>(); //mutable list
-        arrayList.add("one");
-        arrayList.add("two");
-        arrayList.add("three");
-        arrayList.add("four");
-        arrayList.add("five");
-        arrayList.add(null);
+        var mutableList = new ArrayList<String>(); //mutable list
+        mutableList.add("one");
+        mutableList.add("two");
+        mutableList.add("three");
+        mutableList.add("four");
+        mutableList.add("five");
+        mutableList.add(null);
+        System.out.println("mutableList    = " + mutableList);
+        System.out.println("--------------------------------------------------");
 
-
-        var arraysAsList =
+        var immutableList =
             Arrays.asList("one", "two", "three", "four", "five");  // returns an immutable list
-        //arraysAsList.add("six"); // you cannot add or remove elements
-      arraysAsList.replaceAll(String::toUpperCase); //but the items can be modified
+        //immutableList.add("six"); // you cannot add or remove elements
+        immutableList.replaceAll(String::toUpperCase); //but the items can be modified
 
+        System.out.println("immutableList = " + immutableList);
+        System.out.println("--------------------------------------------------");
 
-        var listOf =
-            List.of("one", "two", "three", "four", "five","six"); // complete immutable list - can't add null
-        //listOf.replaceAll(String::toUpperCase); // you cannot modify the elements
+        var completeImmutableList =
+            List.of("one", "two", "three", "four", "five", "six"); // complete immutable list - can't add null
+        //completeImmutableList.replaceAll(String::toUpperCase); // you cannot modify the elements
+        System.out.println("completeImmutableList = " + completeImmutableList);
+        System.out.println("--------------------------------------------------");
 
+        mutableList.removeIf(Objects::isNull);
+        var copyOfMutable = List.copyOf(mutableList); // if the copy is from a mutable it does the copy
 
-//        System.out.println("arrayList    = " + arrayList);
-//        System.out.println("arraysAsList = " + arraysAsList);
-//        System.out.println("listOf       = " + listOf);
-//
-        arrayList.removeIf(Objects::isNull);
-        var copyOf1 = List.copyOf(arrayList); // if the copy is from a mutable it does the copy
-        System.out.println("copyOf1 = " + copyOf1);
-        System.out.println("Equals = " + (arrayList == copyOf1)); //false
+        System.out.println("copyOfMutable = " + copyOfMutable);
+        System.out.println("Equals = " + (mutableList == copyOfMutable)); //false
+        System.out.println("--------------------------------------------------");
 
-        var copyOf2 = List.copyOf(listOf); // if the copy ies from an immutable it points to the same reference
-        System.out.println("copyOf2 = " + copyOf2);
-        System.out.println("Equals = " + (listOf == copyOf2)); // true
+        var copyOfImmutable = List.copyOf(completeImmutableList); // if the copy is from an immutable it points to the same reference
 
-        var map =
+        System.out.println("copyOfImmutable = " + copyOfImmutable);
+        System.out.println("Equals = " + (completeImmutableList == copyOfImmutable)); // true
+
+        var mapTenEntries =
             Map.of(1, "1", 2, "2"); //map k,v up to 10
-        var map2 =
-            Map.ofEntries(Map.entry(1, "1"), Map.entry(2,"2")); // map if you need more than 10 entries
+
+        var mapMoreEntries =
+            Map.ofEntries(
+                Map.entry(1, "1"),
+                Map.entry(2, "2")); // map if you need more than 10 entries
 
     }
 }

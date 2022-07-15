@@ -11,21 +11,15 @@ public class I_PlayWithSealedType {
     public static void main(String[] args) {
         Circle circle = new Circle();
         circle.setRadius(5);
-        Triangle triangle = new Triangle(5, 16);
+        Triangle triangle = new Triangle(5, 16); //using record
         Square square = new Square();
         square.setEdge(6);
-
-        System.out.println("Old way");
-        System.out.println("Surface of Circle: " + oldCalculateSurface(circle));
-        System.out.println("Surface of Triangle: " + oldCalculateSurface(triangle));
-        System.out.println("Surface of Square: " + oldCalculateSurface(square));
-        System.out.println();
 
         System.out.println("using pattern variable");
         System.out.println("Surface of Circle: " + patternVarSurface(circle));
         System.out.println("Surface of Triangle: " + patternVarSurface(triangle));
         System.out.println("Surface of Square: " + patternVarSurface(square));
-        System.out.println();
+        System.out.println("--------------------------------------------------");
 
         System.out.println("using SwitchExpressions");
         System.out.println("Surface of Circle: " + calculateSurface(circle));
@@ -34,45 +28,27 @@ public class I_PlayWithSealedType {
 
     }
 
-    public static double oldCalculateSurface(Figure figure) {
-        double surface = 0;
-        if (figure instanceof Circle) {
-             return Math.PI * Math.pow(((Circle) figure).getRadius(), 2);
-            //return figure.surface();
-        } else if (figure instanceof Triangle) {
-            return ((Triangle) figure).base() * ((Triangle) figure).height() / 2;
-            //return figure.surface();
-        }
-        return surface;
-    }
 
     public static double patternVarSurface(Figure figure) {
         double surface = 0;
         if (figure instanceof Circle circle) {
-            return Math.PI * Math.pow(circle.getRadius(), 2);
-//            return circle.surface();
+            return circle.surface();
         } else if (figure instanceof Triangle triangle) {
-            return (triangle.base() * triangle.height()) / 2;
-//            return triangle.surface();
+            return triangle.surface();
         } else if (figure instanceof Square square) {
-            return square.getEdge() * square.getEdge();
-          //  square.setEdge(8);
-            //return square.surface();
-        }
+            return square.surface();
+        } //we forgot Fractal type
         return surface;
     }
 
     public static double calculateSurface(Figure figure) {
-        double surface;
-        surface = switch (figure) {
-//            case null  -> -1;
+        return switch (figure) {
             case Circle circle -> circle.surface();
             case Triangle triangle -> triangle.surface();
             case Square square -> square.surface();
             case Fractal fractal -> fractal.surface();// if one subclass it's omitted  it will not compile
+//            case null  -> -1;
         };
-
-        return surface;
     }
 
 }

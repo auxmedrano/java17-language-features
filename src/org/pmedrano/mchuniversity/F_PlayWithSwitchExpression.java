@@ -9,9 +9,8 @@ public class F_PlayWithSwitchExpression {
 
     public static void main(String[] args) {
 
-        oldSwitch();
-//        switchUsingArrow();
-//        switchUsingYield();
+//        oldSwitch();
+       switchUsingYield();
 //        switchUsingDefault();
 
     }
@@ -34,46 +33,29 @@ public class F_PlayWithSwitchExpression {
             default:
                 quarterLabel = "Unknown quarter";
         }
-
         System.out.println("Old Switch: " + quarterLabel);
     }
 
-    public static void switchUsingArrow() {
-        // SwitchExpression using ->
-        DayOfWeek dayOfWeek = DayOfWeek.valueOf("SATURDAY");
-
-        var message = switch (dayOfWeek) {
-            case MONDAY, TUESDAY, THURSDAY, FRIDAY -> "School"; //using multiple cases
-            case WEDNESDAY -> "Sports";
-            case SATURDAY -> "Friends";
-            case SUNDAY -> "Family";
-        };
-
-        System.out.println("SwitchExpression using -> : " + message);
-
-    }
-
+    // SwitchExpression using yield instead of return
     public static void switchUsingYield() {
-        // SwitchExpression using yield instead of return
         DayOfWeek dayOfWeek = DayOfWeek.valueOf("FRIDAY");
 
-        String message = switch (dayOfWeek) {
+        var message = switch (dayOfWeek) {
+            case WEDNESDAY -> "Sports";  //doesn't need break
+            case SATURDAY -> "Friends";
+            case SUNDAY -> "Family";
             case MONDAY, TUESDAY, THURSDAY, FRIDAY -> { //multiple statements
                 System.out.println("School printed");
                 yield "School"; //instead of return
             }
-            case WEDNESDAY -> "Sports";
-            case SATURDAY -> "Friends";
-            case SUNDAY -> "Family";
         };
-
         System.out.println("SwitchExpression using Yield: " + message);
     }
 
+    //adding default case to avoid compile errors
     public static void switchUsingDefault() {
-        //adding default case to avoid compile errors
         int day = 7;
-        String message = switch (day) {
+        var message = switch (day) {
             case 1, 2, 5 -> {
                 System.out.println("School");
                 yield "School";
@@ -84,7 +66,6 @@ public class F_PlayWithSwitchExpression {
             default -> "unknown day"; //default case needed
         };
         System.out.println("SwitchExpression Using default: " + message);
-
     }
 
 }

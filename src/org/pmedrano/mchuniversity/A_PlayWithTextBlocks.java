@@ -3,7 +3,7 @@ package org.pmedrano.mchuniversity;
 public class A_PlayWithTextBlocks {
 
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
         String traditionalMultiLine = "hello this \"" + "\n" //escaped characters and new line
             + " is a multi line string";
 
@@ -12,21 +12,21 @@ public class A_PlayWithTextBlocks {
         System.out.println("------------------------------------");
 
         //starts and ends with three double quotes
-//        String textBlock = """
-//            this is a multiline
-//            text block
-//            hello world""";
-//
-//       System.out.println(textBlock);
+        String textBlock = """
+            this is a multiline
+            text block
+            hello world""";
 
-//        System.out.println("------------------------------------");
+       System.out.println(textBlock);
 
-//        String anothertextBlock = """
-//                 this is a multiline   \s
-//               "text block"      \s
-//              a     $hello world  \s
-//             """;
-//        anothertextBlock.lines().map(s -> "|" + s + "|").forEach(System.out::println);
+        System.out.println("------------------------------------");
+
+        String anotherBlock = """
+                 this is a multiline       \s
+               "text block"      \
+              a     $hello world  \s
+             """;
+        anotherBlock.lines().map(s -> "|" + s + "|").forEach(System.out::println);
 //
 //        //incidental whitespace and essential whitespace
 //        // \s is a space and preserves leading space on the line
@@ -34,9 +34,7 @@ public class A_PlayWithTextBlocks {
 //        //the contents don't need to be escaped \"
 //
 
-
     }
-
 
 
 }
