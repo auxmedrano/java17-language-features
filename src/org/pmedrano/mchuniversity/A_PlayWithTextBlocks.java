@@ -4,8 +4,19 @@ public class A_PlayWithTextBlocks {
 
 
     public static void main(String[] args) {
-        String traditionalMultiLine = "hello this \"" + "\n" //escaped characters and new line
-                + " is a multi line string";
+        String traditionalMultiLine =" {\n"
+            + "            \"data\":\n"
+            + "            {\n"
+            + "                \"anotherId\": 254987,\n"
+            + "                \"ndi\": 23425f,\n"
+            + "                \"nit\": 45217869,\n"
+            + "                \"firstName\": \"Test\",\n"
+            + "               \"lastName\": \"One\",\n"
+            + "                \"middleInitial\": null,\n"
+            + "                \"preferredName\": null,\n"
+            + "                \"npi\": \"1254856965\"\n"
+            + "            }\n"
+            + "        }";
 
         System.out.println(traditionalMultiLine);
 
@@ -13,17 +24,28 @@ public class A_PlayWithTextBlocks {
 
         //starts and ends with three double quotes
         String textBlock = """
-                this is a multiline
-                text block
-                hello world""";
+                {
+                "data": {
+                    "anotherId": 254987,
+                    "ndi": 23425f,
+                    "nit": 45217869,
+                    "firstName": "Test",
+                    "lastName": "One",
+                    "middleInitial": null,
+                    "preferredName": null,
+                    "npi": "1254856965"
+                }
+            }
+            
+       """;
 
         System.out.println(textBlock);
 
         System.out.println("------------------------------------");
 
         String anotherBlock = """
-                    this is a multiline       \s
-                  "text block"      \
+                    this is a multiline      \s
+                  "text block" 3 '' '''      \
                  a     $hello world  \s
                 """;
         anotherBlock.lines().map(s -> "|" + s + "|").forEach(System.out::println);
